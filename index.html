@@ -99,16 +99,6 @@
             background: rgba(118, 184, 45, 0.04) !important;
             box-shadow: 0 0 40px rgba(118, 184, 45, 0.15);
         }
-
-    /* Efecto de inclinación para el logo de buceo al pasar el mouse por la sección */
-        .brand-container:hover .diving-logo {
-            transform: scale(1.08) rotate(-8deg);
-            filter: drop-shadow(0 0 12px var(--neon-green));
-        }
-        .diving-logo {
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
-        }
-        
     </style>
 </head>
 <body>
@@ -177,17 +167,21 @@
             <div class="text-center mb-16 flex flex-col items-center justify-center">
                 <h2 class="text-xs font-bold tracking-widest text-[#76b82d] uppercase mb-3">Métricas Reales</h2>
                 
-               <!-- REEMPLAZA EL LOGO VIEJO POR ESTE BLOQUE -->
-            <div class="shrink-0 p-4 bg-white/5 rounded-2xl border border-white/10 shadow-lg shadow-black/30 brand-container animate-pulse" style="animation-duration: 3s;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 text-[#76b82d] diving-logo">
-                <!-- El visor de la máscara -->
-                <path d="M4 10a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v2a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-2z" />
-                <!-- Separación de los ojos (estilo visor clásico) -->
-                <path d="M12 7v4" />
-                <!-- El tubo de respiración (Snorkel) -->
-                <path d="M18 11h1.5a1.5 1.5 0 0 1 1.5 1.5v3.5a3 3 0 0 1-3 3h-1" />
-                </svg>
-            </div>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6 max-w-3xl mx-auto">
+                    <p class="text-3xl md:text-4xl font-black uppercase text-white text-center md:text-left leading-tight">
+                        Realidad Inmersiva <br>
+                        <span class="text-gray-400 text-2xl md:text-3xl font-medium normal-case block mt-2">
+                            Porque la realidad es otra, ¡ahora es mejor!
+                        </span>
+                    </p>
+                    
+                    <div class="shrink-0 p-4 bg-white/5 rounded-2xl border border-white/10 shadow-lg shadow-black/30 animate-pulse" style="animation-duration: 3s;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-16 h-16 text-white">
+                            <path d="M4 10c0-2.2 1.8-4 4-4h6c2.2 0 4 1.8 4 4v3c0 2.2-1.8 4-4 4H8c-2.2 0-4-1.8-4-4v-3z" />
+                            <path d="M6 10c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2v-2z" />
+                            <path d="M4 11H2m16 0h2" />
+                            <path d="M18 7v7c0 1.66-1.34 3-3 3h-1" /> <path d="M18 7h1.5a.5.5 0 0 1 .5.5V9a2 2 0 0 1-2 2h0" /> </svg>
+                    </div>
                 </div>
             </div>
             
