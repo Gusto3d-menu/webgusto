@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gustó 3D - Experiencia RA</title>
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <!-- Mantenemos A-Frame 1.4.2 por su excelente estabilidad con MindAR -->
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     
     <style>
         body { margin: 0; overflow: hidden; }
-        /* Interfaz holográfica sobre la cámara */
         #ui-overlay {
             position: absolute; top: 20px; left: 50%; transform: translateX(-50%);
             z-index: 1000; font-family: sans-serif; background: rgba(11, 15, 25, 0.85);
@@ -27,29 +27,34 @@
     <a-scene 
         mindar-image="imageTargetSrc: ./targets.mind; maxTrack: 1;" 
         color-space="sRGB" 
-        renderer="colorManagement: true, physicallyCorrectLights: true" 
+        renderer="colorManagement: true;" 
         vr-mode-ui="enabled: false" 
         device-orientation-permission-ui="enabled: false">
       
         <a-assets>
+            <!-- Dejamos únicamente el único asset que vas a utilizar -->
             <a-asset-item id="modeloCentro" src="centro.glb"></a-asset-item>
-            <a-asset-item id="modeloPlato2" src="plato2.glb"></a-asset-item>
-            <a-asset-item id="modeloPlato3" src="plato3.glb"></a-asset-item>
         </a-assets>
+
+        <!-- Luces para asegurar que el modelo 3D esté bien iluminado -->
+        <a-entity light="type: ambient; intensity: 1.0;"></a-entity>
+        <a-entity light="type: directional; intensity: 0.5;" position="1 1 1"></a-entity>
 
         <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
         <a-entity mindar-image-target="targetIndex: 0">
+            <!-- El modelo ahora está centrado (0 0 0) con una escala realista (0.5). -->
+            <!-- Si el modelo aparece "acostado", cambia la rotación inicial a "90 0 0" y el "to" de la animación a "90 360 0". -->
             <a-gltf-model 
                 src="#modeloCentro" 
-                position="0 50 0" 
-                rotation="90 50 0" 
-                scale="20 20 20"
-                animation="property: rotation; to: 90 360 0; loop: true; dur: 10000; easing: linear">
+                position="0 0 0" 
+                rotation="0 0 0" 
+                scale="0.5 0.5 0.5"
+                animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear">
             </a-gltf-model>
         </a-entity>
 
-        </a-scene>
+    </a-scene>
 
 </body>
 </html>
